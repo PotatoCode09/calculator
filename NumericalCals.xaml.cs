@@ -25,11 +25,9 @@ namespace Calculator
         public static NumericalCals Instance { get; private set; }
         public NumericalCals()
         {
+            
             InitializeComponent();
-            SecondaryFrame.Navigate(new Standard());
             Instance = this;  // Set instance
-            LoadCalculatorPage(new Standard()); // Default calculator type
-
         }
 
         public void LoadCalculatorPage(Page calculatorPage)

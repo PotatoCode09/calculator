@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="750" Width="900">
+        Title="MainWindow" Height="750" Width="900
+        ">
 
     <Window.Resources>
         <Style TargetType="Button">
@@ -58,33 +59,41 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
 
         </Grid.RowDefinitions>
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Grid.Row="1"/>
-        <Button Name = "Menu" Content = "☰" Grid.Row = "0" FontSize = "30" Margin="5,0,5,0" HorizontalAlignment="Left" Width="80" Click="MenuButton_Click"/>
-        <Button Name = "ShowHistory" Content = "🗎" Grid.Row = "0" Grid.Column = "9" FontSize = "40" HorizontalAlignment="Right" Width="80"/>
+        <Button Name = "Menu" Content = "☰" Grid.Row = "0" FontSize = "30" Margin="5,0,5,0" HorizontalAlignment="Left" Width="80" Click="MenuButton_Click" Panel.ZIndex="2"/>
+        <Button Name = "ShowHistory" Content = "🗎" 
+                Grid.Row = "0" Grid.Column = "9" 
+                FontSize = "40" HorizontalAlignment="Right" Width="80"/>
         <Label Name= "CalcType" Content= "Standard" Grid.Row="0" FontSize="50" HorizontalAlignment="Left" Margin="85,-2,0,2"/>
 
         <Border x:Name="SidebarMenu" Height="750" Width="200"
                 Grid.Row="0" Grid.RowSpan="4" Grid.ColumnSpan="3"
                 VerticalAlignment="Stretch" HorizontalAlignment="Left"
-                Background="Gray">
+                Background="Gray" Visibility="Collapsed">
 
-            <Border.RenderTransform>
-                <TranslateTransform x:Name="SidebarTransform" X="-200"/>
-            </Border.RenderTransform>
 
             <StackPanel>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="20"/>
+
+                    </Grid.RowDefinitions>
+                </Grid>
+                
+                
+                
                 <Button Content="Standard" FontSize="25" Foreground="Black" Background="Black" Width="181" Click="LoadStandard" />
                 <Button Content="Scientific" FontSize="25" Foreground="Black" Background="Black"  Width="181" Click="LoadScientific"/>
                 <Button Content="Programmer" FontSize="25" Foreground="Black" Background="Black"  Width="181" Click="LoadProgrammer"/>
-                <Button Content="DateCalculator" FontSize="25" Foreground="Black" Background="Black" Width="181" Click="LoadDateCalculator"/>
-                <Button Content="Exit" FontSize="25" Foreground="Black" Background="Black" Width="181" Click="Exit_Click"/>
+                <Button Content="Date calculator" FontSize="25" Foreground="Black" Background="Black" Width="181" Click="LoadDateCalculator"/>
             </StackPanel>
 
-            
+
         </Border>
 
     </Grid>

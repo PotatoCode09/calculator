@@ -33,43 +33,23 @@ namespace Calculator
             prg = new Programmer();
 
             InitializeComponent();
-            MainFrame.Navigate(new NumericalCals());
+            MainFrame.Navigate(numCals);
+            NumericalCals.Instance.LoadCalculatorPage(std);
             //MainFrame.Navigate(new DateCalculator());
         }
         private void MenuButton_Click(object sender, RoutedEventArgs e)
         {
-            if (isSidebarOpen)
-            {
-                // Hide the sidebar
-                DoubleAnimation hideSidebar = new DoubleAnimation();
-                hideSidebar.To = -200;
-                hideSidebar.Duration = TimeSpan.FromSeconds(0.3);
-                SidebarTransform.BeginAnimation(TranslateTransform.XProperty, hideSidebar);
-            }
-            else
-            {
-                // Show sidebar
-                DoubleAnimation showAnimation = new DoubleAnimation(0, TimeSpan.FromSeconds(0.3));
-                SidebarTransform.BeginAnimation(TranslateTransform.XProperty, showAnimation);
-            }
-
-            isSidebarOpen = !isSidebarOpen;
-        }
-        private void Exit_Click(object sender, RoutedEventArgs e)
-        {
-            // Slide the sidebar out (hide it)
-            DoubleAnimation slideOut = new DoubleAnimation();
-            slideOut.To = -200;
-            slideOut.Duration = TimeSpan.FromSeconds(0.3);
-            SidebarTransform.BeginAnimation(TranslateTransform.XProperty, slideOut);
-
-            // Update state variable to reflect sidebar is hidden
-            isSidebarOpen = false;
+            SidebarMenu.Visibility = (SidebarMenu.Visibility == Visibility.Visible) ?
+                              Visibility.Collapsed : Visibility.Visible;
         }
 
         private void LoadStandard(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(numCals); // Ensure it goes to NumericalCals first
+            if (NumericalCals.Instance != null)
+            {
+                NumericalCals.Instance.LoadCalculatorPage(std); // Load inside SecondaryFrame
+            }
             UpdateCalculatorType("Standard");
         }
 

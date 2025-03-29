@@ -58,3 +58,4 @@ C:\Users\kamote\Source\Repos\calculator\bin\Debug\net8.0-windows\Calculator.pdb
 C:\Users\kamote\Source\Repos\calculator\obj\Debug\net8.0-windows\Calculator.dll
 C:\Users\kamote\Source\Repos\calculator\obj\Debug\net8.0-windows\Calculator.genruntimeconfig.cache
 C:\Users\kamote\Source\Repos\calculator\obj\Debug\net8.0-windows\ref\Calculator.dll
+C:\Users\kamote\Source\Repos\calculator\obj\Debug\net8.0-windows\Calculator.sourcelink.json
