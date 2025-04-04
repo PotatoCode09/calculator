@@ -84,6 +84,8 @@ namespace Calculator
         {
             CalcType.Content = type;
         }
+
+
     }
 
 }

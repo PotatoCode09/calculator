@@ -3,20 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\kamote\\source\\repos\\calculator\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FAF88361-293A-4260-ACA9-DCA0F50BEB2C}|Calculator.csproj|c:\\users\\kamote\\source\\repos\\calculator\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{FAF88361-293A-4260-ACA9-DCA0F50BEB2C}|Calculator.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{FAF88361-293A-4260-ACA9-DCA0F50BEB2C}|Calculator.csproj|c:\\users\\kamote\\source\\repos\\calculator\\scientific.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{FAF88361-293A-4260-ACA9-DCA0F50BEB2C}|Calculator.csproj|solutionrelative:scientific.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FAF88361-293A-4260-ACA9-DCA0F50BEB2C}|Calculator.csproj|c:\\users\\kamote\\source\\repos\\calculator\\numericalcals.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{FAF88361-293A-4260-ACA9-DCA0F50BEB2C}|Calculator.csproj|solutionrelative:numericalcals.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FAF88361-293A-4260-ACA9-DCA0F50BEB2C}|Calculator.csproj|c:\\users\\kamote\\source\\repos\\calculator\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FAF88361-293A-4260-ACA9-DCA0F50BEB2C}|Calculator.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FAF88361-293A-4260-ACA9-DCA0F50BEB2C}|Calculator.csproj|c:\\users\\kamote\\source\\repos\\calculator\\scientific.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{FAF88361-293A-4260-ACA9-DCA0F50BEB2C}|Calculator.csproj|solutionrelative:scientific.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FAF88361-293A-4260-ACA9-DCA0F50BEB2C}|Calculator.csproj|c:\\users\\kamote\\source\\repos\\calculator\\numericalcals.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -25,6 +17,18 @@
     {
       "AbsoluteMoniker": "D:0:0:{FAF88361-293A-4260-ACA9-DCA0F50BEB2C}|Calculator.csproj|c:\\users\\kamote\\source\\repos\\calculator\\scientific.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FAF88361-293A-4260-ACA9-DCA0F50BEB2C}|Calculator.csproj|solutionrelative:scientific.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FAF88361-293A-4260-ACA9-DCA0F50BEB2C}|Calculator.csproj|c:\\users\\kamote\\source\\repos\\calculator\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{FAF88361-293A-4260-ACA9-DCA0F50BEB2C}|Calculator.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FAF88361-293A-4260-ACA9-DCA0F50BEB2C}|Calculator.csproj|c:\\users\\kamote\\source\\repos\\calculator\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FAF88361-293A-4260-ACA9-DCA0F50BEB2C}|Calculator.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FAF88361-293A-4260-ACA9-DCA0F50BEB2C}|Calculator.csproj|c:\\users\\kamote\\source\\repos\\calculator\\calculator.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{FAF88361-293A-4260-ACA9-DCA0F50BEB2C}|Calculator.csproj|solutionrelative:calculator.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,36 +38,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "NumericalCals.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\kamote\\source\\repos\\calculator\\NumericalCals.xaml.cs",
-              "RelativeDocumentMoniker": "NumericalCals.xaml.cs",
-              "ToolTip": "C:\\Users\\kamote\\source\\repos\\calculator\\NumericalCals.xaml.cs",
-              "RelativeToolTip": "NumericalCals.xaml.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAAAB0AAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-29T07:23:01.966Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\kamote\\source\\repos\\calculator\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "MainWindow.xaml",
-              "ToolTip": "C:\\Users\\kamote\\source\\repos\\calculator\\MainWindow.xaml*",
-              "RelativeToolTip": "MainWindow.xaml*",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-28T03:21:06.793Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "Scientific.xaml",
               "DocumentMoniker": "C:\\Users\\kamote\\source\\repos\\calculator\\Scientific.xaml",
               "RelativeDocumentMoniker": "Scientific.xaml",
@@ -75,19 +54,6 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\kamote\\source\\repos\\calculator\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\kamote\\source\\repos\\calculator\\MainWindow.xaml.cs",
-              "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAuwCIAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-28T03:20:28.302Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "NumericalCals.xaml",
               "DocumentMoniker": "C:\\Users\\kamote\\source\\repos\\calculator\\NumericalCals.xaml",
@@ -95,20 +61,66 @@
               "ToolTip": "C:\\Users\\kamote\\source\\repos\\calculator\\NumericalCals.xaml",
               "RelativeToolTip": "NumericalCals.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-28T03:20:58.608Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-28T03:20:58.608Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
+              "Title": "NumericalCals.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\kamote\\source\\repos\\calculator\\NumericalCals.xaml.cs",
+              "RelativeDocumentMoniker": "NumericalCals.xaml.cs",
+              "ToolTip": "C:\\Users\\kamote\\source\\repos\\calculator\\NumericalCals.xaml.cs",
+              "RelativeToolTip": "NumericalCals.xaml.cs",
+              "ViewState": "AgIAACABAAAAAAAAAAA1wEkBAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-29T07:23:01.966Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Scientific.xaml.cs",
               "DocumentMoniker": "C:\\Users\\kamote\\source\\repos\\calculator\\Scientific.xaml.cs",
               "RelativeDocumentMoniker": "Scientific.xaml.cs",
               "ToolTip": "C:\\Users\\kamote\\source\\repos\\calculator\\Scientific.xaml.cs",
               "RelativeToolTip": "Scientific.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAFoAAAAAAAAAAAAUwIIAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-28T03:20:24.561Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\kamote\\source\\repos\\calculator\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\kamote\\source\\repos\\calculator\\MainWindow.xaml.cs",
+              "RelativeToolTip": "MainWindow.xaml.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAmwEYAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-28T03:20:28.302Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\kamote\\source\\repos\\calculator\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "MainWindow.xaml",
+              "ToolTip": "C:\\Users\\kamote\\source\\repos\\calculator\\MainWindow.xaml",
+              "RelativeToolTip": "MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-28T03:21:06.793Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Calculator.csproj",
+              "DocumentMoniker": "C:\\Users\\kamote\\Source\\Repos\\calculator\\Calculator.csproj",
+              "RelativeDocumentMoniker": "Calculator.csproj",
+              "ToolTip": "C:\\Users\\kamote\\Source\\Repos\\calculator\\Calculator.csproj",
+              "RelativeToolTip": "Calculator.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-04-04T02:12:25.08Z"
             }
           ]
         }

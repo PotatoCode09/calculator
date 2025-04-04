@@ -44,7 +44,8 @@
     </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
-
+            
+            <RowDefinition Height= "45"/>
             <RowDefinition Height= "110"/>
             <RowDefinition Height= "*"/>
         </Grid.RowDefinitions>
@@ -62,10 +63,10 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-       
-        <TextBox x:Name="TypeHere" Text ="0" Grid.Row="0" FontSize="70" TextAlignment="Right" Grid.ColumnSpan="10" BorderBrush="{x:Null}"/>
+        <TextBox x:Name="Expression" Text=" " Grid.Row="0" FontSize="30" TextAlignment="Right" Grid.ColumnSpan="10" BorderBrush="{x:Null}"/>
+        <TextBox x:Name="TypeHere" Text ="0" Grid.Row="1" FontSize="70" TextAlignment="Right" Grid.ColumnSpan="10" BorderBrush="{x:Null}"/>
 
-        <Frame x:Name="SecondaryFrame" NavigationUIVisibility="Hidden" Grid.Row="1" Grid.ColumnSpan="10"/>
+        <Frame x:Name="SecondaryFrame" NavigationUIVisibility="Hidden" Grid.Row="2" Grid.ColumnSpan="10"/>
 
     </Grid>
 </Page>
