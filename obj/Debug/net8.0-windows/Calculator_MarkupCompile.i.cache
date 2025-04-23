@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\kamote\Source\Repos\calculator\App.xaml
-6199646425
+885362513
 
-11-2116246170
+132126447339
 198-352714763
-DateCalculator.xaml;MainWindow.xaml;NumericalCals.xaml;Programmer.xaml;Scientific.xaml;Standard.xaml;
+DateCalculator.xaml;DateCalculatorAddSubtract.xaml;DateCalculatorDBD.xaml;MainWindow.xaml;NumericalCals.xaml;Programmer.xaml;Scientific.xaml;Standard.xaml;
 
-False
+True
 

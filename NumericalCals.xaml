@@ -63,8 +63,8 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <TextBox x:Name="Expression" Text=" " Grid.Row="0" FontSize="30" TextAlignment="Right" Grid.ColumnSpan="10" BorderBrush="{x:Null}"/>
-        <TextBox x:Name="TypeHere" Text ="0" Grid.Row="1" FontSize="70" TextAlignment="Right" Grid.ColumnSpan="10" BorderBrush="{x:Null}"/>
+        <TextBlock x:Name="Expression" Text=" " Grid.Row="0" FontSize="30" TextAlignment="Right" Grid.ColumnSpan="10"/>
+        <TextBox x:Name="TypeHere" Text ="0" Grid.Row="1" FontSize="70" TextAlignment="Right" Grid.ColumnSpan="10" PreviewTextInput="TypeHere_PreviewTextInput" TextChanged="TypeHere_TextChanged" BorderBrush="Transparent" BorderThickness="0"/>
 
         <Frame x:Name="SecondaryFrame" NavigationUIVisibility="Hidden" Grid.Row="2" Grid.ColumnSpan="10"/>
 

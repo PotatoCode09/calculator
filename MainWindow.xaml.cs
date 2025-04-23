@@ -23,7 +23,7 @@ namespace Calculator
         Page dt;
         Page prg;
 
-        private bool isSidebarOpen = false;
+
         public MainWindow()
         {
             sct = new Scientific();
@@ -84,6 +84,7 @@ namespace Calculator
         {
             CalcType.Content = type;
         }
+
 
 
     }

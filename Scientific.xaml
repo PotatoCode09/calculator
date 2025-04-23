@@ -7,6 +7,197 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Scientific">
+    <Page.Resources>
+        <!-- Style for Buttons with Rounded Corners -->
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="156"/>
+            <Setter Property="Height" Value="34"/>
+            <Setter Property="Margin" Value="3,3,3,3"/>
+            <Setter Property="FontSize" Value="23"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="2" 
+                        CornerRadius="5" Name="Border">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                      VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="LightGray"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="Silver"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ComboBoxToggleButton" TargetType="ToggleButton">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="32" />
+                            </Grid.ColumnDefinitions>
+                            <Border
+                          x:Name="Border"
+                          Grid.ColumnSpan="1"
+                          CornerRadius="8"
+                          Background="{TemplateBinding Background}"
+                          BorderBrush="#F6F6F6"
+                          BorderThickness="1" 
+                        />
+
+                            <Path
+                            x:Name="Arrow"
+                            Grid.Column="1"    
+                            Fill="{TemplateBinding Foreground}"
+                            Stroke="{TemplateBinding Foreground}"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Data="M 0 0 L 4 4 L 8 0 Z"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <ControlTemplate x:Key="ComboBoxTextBox" TargetType="TextBox">
+            <Border x:Name="PART_ContentHost" Focusable="True" />
+        </ControlTemplate>
+
+        <Style x:Key="theComboBox" TargetType="{x:Type ComboBox}">
+            <Setter Property="Foreground" Value="#333" />
+            <Setter Property="BorderBrush" Value="Gray" />
+            <Setter Property="Background" Value="White" />
+            <Setter Property="SnapsToDevicePixels" Value="true"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="MinWidth" Value="150"/>
+            <Setter Property="MinHeight" Value="35"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox">
+                        <Grid>
+                            <ToggleButton
+                            Cursor="Hand"
+                            Name="ToggleButton"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            Background="{TemplateBinding Background}"
+                            Foreground="{TemplateBinding Foreground}"
+                            Style="{StaticResource ComboBoxToggleButton}"
+                            Grid.Column="2"
+                            Focusable="false"
+                            IsChecked="{Binding Path=IsDropDownOpen,Mode=TwoWay,RelativeSource={RelativeSource TemplatedParent}}"
+                            ClickMode="Press"/>
+
+                            <ContentPresenter
+                            Name="ContentSite"
+                            IsHitTestVisible="False"
+                            Content="{TemplateBinding SelectionBoxItem}"
+                            ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                            ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                            Margin="10,3,30,3"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Left" />
+                            <TextBox x:Name="PART_EditableTextBox"
+                            Style="{x:Null}"
+                            Template="{StaticResource ComboBoxTextBox}"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Margin="3,3,23,3"
+                            Focusable="True"                               
+                            Visibility="Hidden"
+                            IsReadOnly="{TemplateBinding IsReadOnly}"/>
+                            <Popup
+                            Name="Popup"
+                            Placement="Bottom"
+                            IsOpen="{TemplateBinding IsDropDownOpen}"
+                            AllowsTransparency="True"
+                            Focusable="False"
+                            PopupAnimation="Slide">
+                                <Grid
+                              Name="DropDown"
+                              SnapsToDevicePixels="True"               
+                              MinWidth="{TemplateBinding ActualWidth}"
+                              MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                    <Border
+                                    CornerRadius="8"
+                                    x:Name="DropDownBorder"
+                                    Background="White"
+                                    BorderThickness="1"
+                                    BorderBrush="#F6F6F6"
+                                    />
+                                    <ScrollViewer Margin="4,6,4,6" SnapsToDevicePixels="True">
+                                        <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" />
+                                    </ScrollViewer>
+                                </Grid>
+                            </Popup>
+
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="HasItems" Value="false">
+                                <Setter TargetName="DropDownBorder" Property="MinHeight" Value="95"/>
+                            </Trigger>
+                            <Trigger Property="IsGrouping" Value="true">
+                                <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+                            </Trigger>
+                            <Trigger Property="IsEditable" Value="true">
+                                <Setter Property="IsTabStop" Value="false"/>
+                                <Setter TargetName="PART_EditableTextBox" Property="Visibility" Value="Visible"/>
+                                <Setter TargetName="ContentSite" Property="Visibility" Value="Hidden"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="theComboBoxItem" TargetType="{x:Type ComboBoxItem}">
+            <Setter Property="SnapsToDevicePixels" Value="true" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBoxItem">
+                        <Border
+                        Name="Border"
+                        Padding="5"
+                        Margin="2"
+                        BorderThickness="2,0,0,0"
+                        CornerRadius="0"
+                        Background="Transparent"
+                        BorderBrush="Transparent">
+                            <TextBlock TextAlignment="Left">
+                            <ContentPresenter />
+                            </TextBlock>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsHighlighted" Value="true">
+                                <Setter TargetName="Border" Property="BorderBrush" Value="#B3CB37"/>
+                                <Setter TargetName="Border" Property="Background" Value="#F8FAEB"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Page.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -33,55 +224,74 @@
         <Button Name="UnitAngle" Content="DEG" Grid.Column="0" Grid.Row="0"/>
         <Button Name="FixedExponent" Content="F-E" Grid.Column="1" Grid.Row="0"/>
 
-
         <Button Name="MemClear" Content="MC" Grid.Column="0" Grid.Row="1"/>
         <Button Name="MemRecall" Content="MR" Grid.Column="1" Grid.Row="1"/>
         <Button Name="MemAdd" Content="M+" Grid.Column="2" Grid.Row="1"/>
         <Button Name="MemSubtract" Content="M-" Grid.Column="3" Grid.Row="1"/>
         <Button Name="MemStore" Content="MS" Grid.Column="4" Grid.Row="1"/>
 
-        <Button x:Name = "Trig" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="2" Content="∠ Trigonometry ▼" FontSize="25" Background="Transparent"/>
-        <Button x:Name = "Func" Grid.ColumnSpan="2" Grid.Column="2" Grid.Row="2" Content="f Function ▼"  FontSize="25" Background="Transparent"/>
+        <ComboBox x:Name="Trig" Style="{DynamicResource theComboBox}" ItemContainerStyle="{DynamicResource theComboBoxItem}" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="2" Text="Trigonometry" FontSize="23" SelectionChanged="Trig_SelectionChanged" Margin="5,5,5,5" Padding="15,5,15,5">
+            <ComboBoxItem Content="sin" FontSize="23" />
+            <ComboBoxItem Content="cos" FontSize="23" />
+            <ComboBoxItem Content="tan" FontSize="23" />
+            <ComboBoxItem Content="sec" FontSize="23" />
+            <ComboBoxItem Content="csc" FontSize="23" />
+            <ComboBoxItem Content="cot" FontSize="23" />
+        </ComboBox>
+        <ComboBox x:Name="Func" Style="{DynamicResource theComboBox}" ItemContainerStyle="{DynamicResource theComboBoxItem}" Grid.ColumnSpan="2" Grid.Column="2" Grid.Row="2" Text="Function" FontSize="23" Margin="5,5,5,5" Padding="15,5,15,5">
 
-        <Button Name = "SecFunc" Content = "2nd" Grid.Row = "3" FontSize = "30"/>
-        <Button Name = "Square" Content = "x²" Grid.Row = "4" FontSize = "30" Click="SquareButton_Click"/>
-        <Button Name = "SquareRoot" Content = "²√x" Grid.Row = "5" FontSize = "30" Click="SquareRootButton_Click"/>
-        <Button Name = "Exponentiation" Content = "xʸ" Grid.Row = "6" FontSize = "30" Click="ExponentiationButton_Click"/>
-        <Button Name = "TenPow" Content = "10ˣ" Grid.Row = "7" FontSize = "30" Click="TenPowerXButton_Click"/>
-        <Button Name = "Log" Content = "log" Grid.Row = "8" FontSize = "30" Click="LogarithmButton_Click"/>
-        <Button Name = "NatLog" Content = "ln" Grid.Row = "9" Grid.Column="0" FontSize = "30" Click="NaturalLogButton_Click"/>
+        </ComboBox>
 
-        <Button Name = "Pi" Content = "π" Grid.Row = "3" Grid.Column="1" FontSize = "30" Click="PiButton_Click"/>
-        <Button Name = "Reciprocal" Content = "¹/ₓ" Grid.Row = "4" Grid.Column="1" FontSize = "30" Click="ReciprocalButton_Click"/>
-        <Button Name = "OpenParenthesis" Content = "(" Grid.Row = "5" Grid.Column="1" FontSize = "30" Click="OpenParenthesisButton_Click"/>
-        <Button Name = "Seven" Content = "7" Grid.Row = "6" Grid.Column="1" FontSize = "30" Click="NumberButton_Click"/>
-        <Button Name = "Four" Content = "4" Grid.Row = "7" Grid.Column="1" FontSize = "30" Click="NumberButton_Click"/>
-        <Button Name = "One" Content = "1" Grid.Row = "8" Grid.Column="1" FontSize = "30" Click="NumberButton_Click"/>
-        <Button Name = "Sign" Content = "±" Grid.Row = "9" Grid.Column="1" FontSize = "30" Click="SignButton_Click"/>
+        <!-- Control Buttons -->
+        <Button Name="SecFunc" Content="2nd" Grid.Row="3" FontSize="23"/>
+        <Button Name="ClearAll" Content="C" Grid.Row="3" Grid.Column="3" FontSize="23" Click="ClearAllButton_Click"/>
+        <Button Name="BackSpace" Content="⌫" Grid.Row="3" Grid.Column="4" FontSize="23" Click="BackspaceButton_Click"/>
 
-        <Button Name = "Eulers" Content = "e" Grid.Row = "3" Grid.Column="2" FontSize = "30" Click="EulersButton_Click"/>
-        <Button Name = "Abs" Content = "|x|" Grid.Row = "4" Grid.Column="2" FontSize = "30" Click="AbsoluteValueButton_Click"/>
-        <Button Name = "CloseParenthesis" Content = ")" Grid.Row = "5" Grid.Column="2" FontSize = "30" Click="CloseParenthesisButton_Click"/>
-        <Button Name = "Eight" Content = "8" Grid.Row = "6" Grid.Column="2" FontSize = "30" Click="NumberButton_Click"/>
-        <Button Name = "Five" Content = "5" Grid.Row = "7" Grid.Column="2" FontSize = "30" Click="NumberButton_Click"/>
-        <Button Name = "Two" Content = "2" Grid.Row = "8" Grid.Column="2" FontSize = "30" Click="NumberButton_Click"/>
-        <Button Name = "Zero" Content = "0" Grid.Row = "9" Grid.Column="2" FontSize = "30" Click="NumberButton_Click"/>
+        <!-- Constants & Misc -->
+        <Button Name="Pi" Content="π" Grid.Row="3" Grid.Column="1" FontSize="23" Click="PiButton_Click"/>
+        <Button Name="Eulers" Content="e" Grid.Row="3" Grid.Column="2" FontSize="23" Click="EulersButton_Click"/>
+        <Button Name="Abs" Content="|x|" Grid.Row="4" Grid.Column="2" FontSize="23" Click="AbsoluteValueButton_Click"/>
+        <Button Name="Reciprocal" Content="¹/ₓ" Grid.Row="4" Grid.Column="1" FontSize="23" Click="ReciprocalButton_Click"/>
+        <Button Name="Sign" Content="±" Grid.Row="9" Grid.Column="1" FontSize="23" Click="SignButton_Click"/>
 
-        <Button Name = "ClearEverything" Content = "CE" Grid.Row = "3" Grid.Column="3" FontSize = "30" Click="ClearEverythingButton_Click"/>
-        <Button Name = "Exp" Content = "exp" Grid.Row = "4" Grid.Column="3" FontSize = "30" Click="ExponentialButton_Click"/>
-        <Button Name = "Factorial" Content = "n!" Grid.Row = "5" Grid.Column="3" FontSize = "30" Click="FactorialButton_Click"/>
-        <Button Name = "Nine" Content = "9" Grid.Row = "6" Grid.Column="3" FontSize = "30" Click="NumberButton_Click"/>
-        <Button Name = "Six" Content = "6" Grid.Row = "7" Grid.Column="3" FontSize = "30" Click="NumberButton_Click"/>
-        <Button Name = "Three" Content = "3" Grid.Row = "8" Grid.Column="3" FontSize = "30" Click="NumberButton_Click"/>
-        <Button Name = "Decimal" Content = "." Grid.Row = "9" Grid.Column="3" FontSize = "30" Click="DecimalButton_Click"/>
+        <!-- Scientific Functions -->
+        <Button Name="Square" Content="x²" Grid.Row="4" FontSize="23" Click="SquareButton_Click"/>
+        <Button Name="SquareRoot" Content="²√x" Grid.Row="5" FontSize="23" Click="SquareRootButton_Click"/>
+        <Button Name="Exponentiation" Content="xʸ" Grid.Row="6" FontSize="23" Click="ExponentiationButton_Click"/>
+        <Button Name="TenPow" Content="10ˣ" Grid.Row="7" FontSize="23" Click="TenPowerXButton_Click"/>
+        <Button Name="Log" Content="log" Grid.Row="8" FontSize="23" Click="LogarithmButton_Click"/>
+        <Button Name="NatLog" Content="ln" Grid.Row="9" Grid.Column="0" FontSize="23" Click="NaturalLogButton_Click"/>
+        <Button Name="Exp" Content="exp" Grid.Row="4" Grid.Column="3" FontSize="23" Click="ExponentialButton_Click"/>
+        <Button Name="Factorial" Content="n!" Grid.Row="5" Grid.Column="3" FontSize="23" Click="FactorialButton_Click"/>
+        <Button Name="Modulu" Content="mod" Grid.Row="4" Grid.Column="4" FontSize="23" Click="ModulusButton_Click"/>
 
-        <Button Name = "BackSpace" Content = "⌫" Grid.Row = "3" Grid.Column="4" FontSize = "30" Click="BackspaceButton_Click"/>
-        <Button Name = "Modulu" Content = "mod" Grid.Row = "4" Grid.Column="4" FontSize = "30" Click="ModulusButton_Click"/>
-        <Button Name = "Divide" Content = "/" Grid.Row = "5" Grid.Column="4" FontSize = "30" Click="OperationButton_Click"/>
-        <Button Name = "Multiply" Content = "*" Grid.Row = "6" Grid.Column="4" FontSize = "30" Click="OperationButton_Click"/>
-        <Button Name = "Minus" Content = "-" Grid.Row = "7" Grid.Column="4" FontSize = "30" Click="OperationButton_Click"/>
-        <Button Name = "Add" Content = "+" Grid.Row = "8" Grid.Column="4" FontSize = "30" Click="OperationButton_Click"/>
-        <Button Name = "Evaluate" Content = "=" Grid.Row = "9" Grid.Column="4" FontSize = "30" Background="MediumPurple" Click="EvaluateButton_Click"/>
+        <!-- Parentheses -->
+        <Button Name="OpenParenthesis" Content="(" Grid.Row="5" Grid.Column="1" FontSize="23" Click="OpenParenthesisButton_Click"/>
+        <Button Name="CloseParenthesis" Content=")" Grid.Row="5" Grid.Column="2" FontSize="23" Click="CloseParenthesisButton_Click"/>
+
+        <!-- Number Buttons -->
+        <Button Name="Seven" Content="7" Grid.Row="6" Grid.Column="1" FontSize="23" Click="NumberButton_Click"/>
+        <Button Name="Eight" Content="8" Grid.Row="6" Grid.Column="2" FontSize="23" Click="NumberButton_Click"/>
+        <Button Name="Nine" Content="9" Grid.Row="6" Grid.Column="3" FontSize="23" Click="NumberButton_Click"/>
+
+        <Button Name="Four" Content="4" Grid.Row="7" Grid.Column="1" FontSize="23" Click="NumberButton_Click"/>
+        <Button Name="Five" Content="5" Grid.Row="7" Grid.Column="2" FontSize="23" Click="NumberButton_Click"/>
+        <Button Name="Six" Content="6" Grid.Row="7" Grid.Column="3" FontSize="23" Click="NumberButton_Click"/>
+
+        <Button Name="One" Content="1" Grid.Row="8" Grid.Column="1" FontSize="23" Click="NumberButton_Click"/>
+        <Button Name="Two" Content="2" Grid.Row="8" Grid.Column="2" FontSize="23" Click="NumberButton_Click"/>
+        <Button Name="Three" Content="3" Grid.Row="8" Grid.Column="3" FontSize="23" Click="NumberButton_Click"/>
+
+        <Button Name="Zero" Content="0" Grid.Row="9" Grid.Column="2" FontSize="23" Click="NumberButton_Click"/>
+        <Button Name="Decimal" Content="." Grid.Row="9" Grid.Column="3" FontSize="23" Click="DecimalButton_Click"/>
+
+        <!-- Operators -->
+        <Button Name="Divide" Content="/" Grid.Row="5" Grid.Column="4" FontSize="23" Click="OperationButton_Click"/>
+        <Button Name="Multiply" Content="*" Grid.Row="6" Grid.Column="4" FontSize="23" Click="OperationButton_Click"/>
+        <Button Name="Minus" Content="-" Grid.Row="7" Grid.Column="4" FontSize="23" Click="OperationButton_Click"/>
+        <Button Name="Add" Content="+" Grid.Row="8" Grid.Column="4" FontSize="23" Click="OperationButton_Click"/>
+        <Button Name="Evaluate" Content="=" Grid.Row="9" Grid.Column="4" FontSize="23" Background="MediumPurple" Click="EvaluateButton_Click"/>
+
 
 
     </Grid>

@@ -65,10 +65,9 @@
         </Grid.RowDefinitions>
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Grid.Row="1"/>
         <Button Name = "Menu" Content = "☰" Grid.Row = "0" FontSize = "30" Margin="5,0,5,0" HorizontalAlignment="Left" Width="80" Click="MenuButton_Click" Panel.ZIndex="2"/>
-        <Button Name = "ShowHistory" Content = "🗎" 
-                Grid.Row = "0" Grid.Column = "9" 
-                FontSize = "40" HorizontalAlignment="Right" Width="80"/>
         <Label Name= "CalcType" Content= "Standard" Grid.Row="0" FontSize="50" HorizontalAlignment="Left" Margin="85,-2,0,2"/>
+
+        <ListBox x:Name="HistoryList" Grid.Row="1" Visibility="Collapsed" Background="LightGray" Width="300" HorizontalAlignment="Right" Margin="0,0,10,0"/>
 
         <Border x:Name="SidebarMenu" Height="750" Width="200"
                 Grid.Row="0" Grid.RowSpan="4" Grid.ColumnSpan="3"

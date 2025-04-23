@@ -59,3 +59,7 @@ C:\Users\kamote\Source\Repos\calculator\obj\Debug\net8.0-windows\Calculator.dll
 C:\Users\kamote\Source\Repos\calculator\obj\Debug\net8.0-windows\Calculator.genruntimeconfig.cache
 C:\Users\kamote\Source\Repos\calculator\obj\Debug\net8.0-windows\ref\Calculator.dll
 C:\Users\kamote\Source\Repos\calculator\obj\Debug\net8.0-windows\Calculator.sourcelink.json
+C:\Users\kamote\Source\Repos\calculator\obj\Debug\net8.0-windows\DateCalculatorDBD.g.cs
+C:\Users\kamote\Source\Repos\calculator\obj\Debug\net8.0-windows\DateCalculatorDBD.baml
+C:\Users\kamote\source\repos\calculator\obj\Debug\net8.0-windows\DateCalculatorAddSubtract.g.cs
+C:\Users\kamote\source\repos\calculator\obj\Debug\net8.0-windows\DateCalculatorAddSubtract.baml

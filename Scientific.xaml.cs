@@ -48,6 +48,43 @@ namespace Calculator
             }
         }
 
+        private void Trig_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (sender is ComboBox comboBox && comboBox.SelectedItem is ComboBoxItem selectedItem)
+            {
+                string operation = selectedItem.Content.ToString();
+
+                // Perform the trigonometric operation
+                switch (operation)
+                {
+                    case "sin":
+                        NumericalCals.Instance.CalculateSin();
+                        break;
+                    case "cos":
+                        NumericalCals.Instance.CalculateCos();
+                        break;
+                    case "tan":
+                        NumericalCals.Instance.CalculateTan();
+                        break;
+                    case "sec":
+                        NumericalCals.Instance.CalculateSec();
+                        break;
+                    case "csc":
+                        NumericalCals.Instance.CalculateCsc();
+                        break;
+                    case "cot":
+                        NumericalCals.Instance.CalculateCot();
+                        break;
+                }
+
+                // Reset the ComboBox text to "∠ Trigonometry"
+                comboBox.Text = "∠ Trigonometry";
+
+                // Clear the selection to allow re-selection of the same item
+                comboBox.SelectedItem = null;
+            }
+        }
+
         private void EvaluateButton_Click(object sender, RoutedEventArgs e)
         {
             NumericalCals.Instance.EvaluateExpression();
@@ -57,9 +94,9 @@ namespace Calculator
         {
             NumericalCals.Instance.Backspace();
         }
-        private void ClearEverythingButton_Click(object sender, RoutedEventArgs e)
+        private void ClearAllButton_Click(object sender, RoutedEventArgs e)
         {
-            NumericalCals.Instance.ClearEverything();
+            NumericalCals.Instance.ClearAll();
         }
 
         private void SquareRootButton_Click(object sender, RoutedEventArgs e)
@@ -128,6 +165,11 @@ namespace Calculator
         private void SignButton_Click(object sender, RoutedEventArgs e)
         {
             NumericalCals.Instance.FlipSign();
+        }
+
+        private void ComboBoxItem_Selected(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

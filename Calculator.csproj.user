@@ -10,6 +10,12 @@
     <Compile Update="DateCalculator.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="DateCalculatorAddSubtract.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="DateCalculatorDBD.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="NumericalCals.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -25,6 +31,12 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="DateCalculator.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="DateCalculatorAddSubtract.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="DateCalculatorDBD.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">

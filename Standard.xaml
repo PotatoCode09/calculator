@@ -7,6 +7,70 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Standard">
+    <Page.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="195"/>
+            <Setter Property="Height" Value="57"/>
+            <Setter Property="Margin" Value="3,3,3,3"/>
+            <Setter Property="FontSize" Value="23"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                BorderBrush="{TemplateBinding BorderBrush}" 
+                BorderThickness="2" 
+                CornerRadius="5" Name="Border">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                              VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="LightGray"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="Silver"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ComboBoxToggleButton" TargetType="ToggleButton">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="32" />
+                            </Grid.ColumnDefinitions>
+                            <Border
+                  x:Name="Border"
+                  Grid.ColumnSpan="2"
+                  CornerRadius="8"
+                  Background="{TemplateBinding Background}"
+                  BorderBrush="#F6F6F6"
+                  BorderThickness="1" 
+                />
+
+                            <Path
+                    x:Name="Arrow"
+                    Grid.Column="1"    
+                    Fill="{TemplateBinding Foreground}"
+                    Stroke="{TemplateBinding Foreground}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Data="M 0 0 L 4 4 L 8 0 Z"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Page.Resources>
 
     <Grid>
         
@@ -27,40 +91,49 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Button Name="MemClear" Content="MC" Grid.Column="0"/>
-        <Button Name="MemRecall" Content="MR" Grid.Column="1"/>
-        <Button Name="MemAdd" Content="M+" Grid.Column="2"/>
-        <Button Name="MemSubtract" Content="M-" Grid.Column="3"/>
-        <Button Name="MemStore" Content="MS" Grid.Column="4"/>
+        <!-- Memory Buttons -->
+        <Button Name="MemClear" Content="MC" Grid.Column="0" FontSize="23"/>
+        <Button Name="MemRecall" Content="MR" Grid.Column="1" FontSize="23"/>
+        <Button Name="MemAdd" Content="M+" Grid.Column="2" FontSize="23"/>
+        <Button Name="MemSubtract" Content="M-" Grid.Column="3" FontSize="23"/>
+        <Button Name="MemStore" Content="MS" Grid.Column="4" FontSize="23"/>
 
+        <!-- Clear/Backspace Controls -->
+        <Button Name="Percent" Content="%" Grid.Row="1" FontSize="23" Click="PercentButton_Click"/>
+        <Button Name="ClearEntry" Content="CE" Grid.Row="1" Grid.Column="1" FontSize="23" Click="ClearEntryButton_Click"/>
+        <Button Name="Clear" Content="C" Grid.Row="1" Grid.Column="2" FontSize="23" Click="ClearButton_Click"/>
+        <Button Name="Backspace" Content="⌫" Grid.Row="1" Grid.Column="3" FontSize="23" Click="BackspaceButton_Click"/>
 
-        <Button Name = "Percent" Content = "%" Grid.Row = "1" FontSize = "30"/>
-        <Button Name = "Fraction" Content = "1/x" Grid.Row = "2" FontSize = "30"/>
-        <Button Name = "Seven" Content = "7" Grid.Row = "3" FontSize = "30"/>
-        <Button Name = "Four" Content = "4" Grid.Row = "4" FontSize = "30"/>
-        <Button Name = "One" Content = "1" Grid.Row = "5" FontSize = "30"/>
-        <Button Name = "Sign" Content = "±" Grid.Row = "6" FontSize = "30"/>
+        <!-- Math Functions -->
+        <Button Name="Reciprocal" Content="1/x" Grid.Row="2" FontSize="23" Click="ReciprocalButton_Click"/>
+        <Button Name="PowerOfTwo" Content="x²" Grid.Row="2" Grid.Column="1" FontSize="23" Click="SquareButton_Click"/>
+        <Button Name="SquareRoot" Content="²√x" Grid.Row="2" Grid.Column="2" FontSize="23" Click="SquareRootButton_Click"/>
+        <Button Name="Divide" Content="/" Grid.Row="2" Grid.Column="3" FontSize="23" Click="OperationButton_Click"/>
 
-        <Button Name = "ClearEverything" Content = "CE" Grid.Row = "1" Grid.Column="1" FontSize = "30"/>
-        <Button Name = "PowerOfTwo" Content = "x²" Grid.Row = "2" Grid.Column="1" FontSize = "30" />
-        <Button Name = "Eight" Content = "8" Grid.Row = "3" Grid.Column="1" FontSize = "30"/>
-        <Button Name = "Five" Content = "5" Grid.Row = "4" Grid.Column="1" FontSize = "30"/>
-        <Button Name = "Two" Content = "2" Grid.Row = "5" Grid.Column="1" FontSize = "30" />
-        <Button Name = "Zero" Content = "0" Grid.Row = "6" Grid.Column="1" FontSize = "30" />
+        <!-- Number Row: 7 8 9 -->
+        <Button Name="Seven" Content="7" Grid.Row="3" FontSize="23" Click="NumberButton_Click"/>
+        <Button Name="Eight" Content="8" Grid.Row="3" Grid.Column="1" FontSize="23" Click="NumberButton_Click"/>
+        <Button Name="Nine" Content="9" Grid.Row="3" Grid.Column="2" FontSize="23" Click="NumberButton_Click"/>
+        <Button Name="Multiply" Content="*" Grid.Row="3" Grid.Column="3" FontSize="23" Click="OperationButton_Click"/>
 
-        <Button Name = "Clear" Content = "C" Grid.Row = "1" Grid.Column="2" FontSize = "30" />
-        <Button Name = "SquareRoot" Content = "√" Grid.Row = "2" Grid.Column="2" FontSize = "30"/>
-        <Button Name = "Nine" Content = "9" Grid.Row = "3" Grid.Column="2" FontSize = "30"/>
-        <Button Name = "Six" Content = "6" Grid.Row = "4" Grid.Column="2" FontSize = "30" />
-        <Button Name = "Three" Content = "3" Grid.Row = "5" Grid.Column="2" FontSize = "30" />
-        <Button Name = "Decimal" Content = "." Grid.Row = "6" Grid.Column="2" FontSize = "30"/>
+        <!-- Number Row: 4 5 6 -->
+        <Button Name="Four" Content="4" Grid.Row="4" FontSize="23" Click="NumberButton_Click"/>
+        <Button Name="Five" Content="5" Grid.Row="4" Grid.Column="1" FontSize="23" Click="NumberButton_Click"/>
+        <Button Name="Six" Content="6" Grid.Row="4" Grid.Column="2" FontSize="23" Click="NumberButton_Click"/>
+        <Button Name="Minus" Content="-" Grid.Row="4" Grid.Column="3" FontSize="23" Click="OperationButton_Click"/>
 
-        <Button Name = "Backspace" Content = "⌫" Grid.Row = "1" Grid.Column="3" FontSize = "30"/>
-        <Button Name = "Divide" Content = "/" Grid.Row = "2" Grid.Column="3" FontSize = "30"/>
-        <Button Name = "Multiply" Content = "*" Grid.Row = "3" Grid.Column="3" FontSize = "30"/>
-        <Button Name = "Minus" Content = "-" Grid.Row = "4" Grid.Column="3" FontSize = "30"/>
-        <Button Name = "Add" Content = "+" Grid.Row = "5" Grid.Column="3" FontSize = "30"/>
-        <Button Name = "Evaluate" Content = "=" Grid.Row = "6" Grid.Column="3" FontSize = "30" Background="MediumPurple"/>
+        <!-- Number Row: 1 2 3 -->
+        <Button Name="One" Content="1" Grid.Row="5" FontSize="23" Click="NumberButton_Click"/>
+        <Button Name="Two" Content="2" Grid.Row="5" Grid.Column="1" FontSize="23" Click="NumberButton_Click"/>
+        <Button Name="Three" Content="3" Grid.Row="5" Grid.Column="2" FontSize="23" Click="NumberButton_Click"/>
+        <Button Name="Add" Content="+" Grid.Row="5" Grid.Column="3" FontSize="23" Click="OperationButton_Click"/>
+
+        <!-- Bottom Row: ± 0 . = -->
+        <Button Name="Sign" Content="±" Grid.Row="6" FontSize="23" Click="SignButton_Click"/>
+        <Button Name="Zero" Content="0" Grid.Row="6" Grid.Column="1" FontSize="23" Click="NumberButton_Click"/>
+        <Button Name="Decimal" Content="." Grid.Row="6" Grid.Column="2" FontSize="23" Click="DecimalButton_Click"/>
+        <Button Name="Evaluate" Content="=" Grid.Row="6" Grid.Column="3" FontSize="23" Background="MediumPurple" Click="EvaluateButton_Click"/>
+
 
     </Grid>
 </Page>

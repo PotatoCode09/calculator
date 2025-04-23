@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\kamote\Source\Repos\calculator\obj\Debug\net8.0-windows\
+C:\Users\kamote\source\repos\calculator\obj\Debug\net8.0-windows\
 Calculator
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\Users\kamote\Source\Repos\calculator\App.xaml
-6199646425
+C:\Users\kamote\source\repos\calculator\App.xaml
+885362513
 
-91953055977
+111900782190
 198-352714763
-DateCalculator.xaml;MainWindow.xaml;NumericalCals.xaml;Programmer.xaml;Scientific.xaml;Standard.xaml;
+DateCalculator.xaml;DateCalculatorAddSubtract.xaml;DateCalculatorDBD.xaml;MainWindow.xaml;NumericalCals.xaml;Programmer.xaml;Scientific.xaml;Standard.xaml;
 
 False
 
